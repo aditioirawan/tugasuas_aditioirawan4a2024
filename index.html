@@ -1,0 +1,740 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>KOMIK.ID - Tempat Baca Manhwa, Manhua, & Manga Lengkap</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- App Shell Container -->
+  <div id="appShellContainer">
+
+    <!-- Top Simulator Mode Bar (Untuk Penguji/Dosen di Layar Laptop) -->
+    <!-- Main Navigation Header (Mockup Bar) -->
+        <!-- Main Navigation Header (Top Navbar Desktop & Mobile) -->
+    <header class="app-header">
+      <div class="header-left-group">
+        <div class="header-brand" id="brandLogo">
+          <div class="brand-logo-container">
+            <div class="brand-icon-box">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 4h4.5a3.5 3.5 0 0 1 3.5 3.5v12.5a3.5 3.5 0 0 0-3.5-3.5H4z"></path>
+                <path d="M20 4h-4.5a3.5 3.5 0 0 0-3.5 3.5v12.5a3.5 3.5 0 0 1 3.5-3.5H20z"></path>
+              </svg>
+            </div>
+            <div class="brand-title-wrap">
+              <div class="brand-title-row">
+                <span class="brand-name">KOMIK</span>
+                <span class="brand-id-badge">• ID</span>
+              </div>
+              <span class="brand-subtext">MANGA • MANHWA • MANHUA</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop Navigation Menu (Opsi Pindah ke Atas Sesuai Permintaan) -->
+        <nav class="desktop-nav-menu" id="desktopNavMenu">
+          <button class="desktop-nav-link active" data-view="beranda">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <span>Beranda</span>
+          </button>
+
+          <button class="desktop-nav-link" data-view="browse">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+            </svg>
+            <span>Browse</span>
+          </button>
+
+          <button class="desktop-nav-link" data-view="bookmark">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span>Bookmark</span>
+          </button>
+
+          <button class="desktop-nav-link" data-view="akun">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>Akun</span>
+          </button>
+          <form class="home-search-wrap" id="homeSearchForm" role="search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input id="homeSearchInput" type="search" placeholder="Cari judul..." aria-label="Cari komik" />
+            <button type="submit">Cari</button>
+          </form>
+        </nav>
+      </div>
+
+      <div class="header-actions">
+        <!-- Notifikasi -->
+        <button class="btn-header-icon" id="btnOpenNotif" title="Notifikasi Update">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
+          <span class="notif-badge-dot"></span>
+        </button>
+
+        <!-- User Avatar & Profile Modal -->
+        <button class="user-avatar-btn" id="btnOpenProfile" title="Profil Akun">
+          <span class="avatar-initial" id="headerAvatarInitial">?</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Views Container -->
+    <main class="main-view-container">
+
+      <!-- ==========================================
+           1. VIEW BERANDA (HOME)
+           ========================================== -->
+      <section id="berandaView" class="app-view active">
+        <!-- Hero Carousel ("Pilihan Teratas") -->
+        <div class="hero-carousel-section">
+          <div class="hero-slider-wrapper">
+            <div id="heroCarouselSlides">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+          <div class="hero-dots-wrap" id="heroDots">
+            <!-- Dots via JS -->
+          </div>
+        </div>
+
+        <!-- Quick Type Filter Bar (Semua, Manhwa, Manhua, Manga) -->
+        <div class="home-type-pills-bar">
+          <button class="home-type-pill active" data-type="all">Semua</button>
+          <button class="home-type-pill" data-type="manhwa">🇰🇷 Manhwa</button>
+          <button class="home-type-pill" data-type="manhua">🇨🇳 Manhua</button>
+          <button class="home-type-pill" data-type="manga">🇯🇵 Manga</button>
+        </div>
+
+        <!-- Trending Hari Ini -->
+        <div class="section-header-row">
+          <div class="section-title-wrap">
+            <svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+            <h3 class="section-title">Trending Hari Ini</h3>
+          </div>
+          <button class="section-link-more" onclick="App.navigateTo('browse')">Lihat Semua &rsaquo;</button>
+        </div>
+        <div class="trending-cards-scroll" id="homeTrendingList">
+          <!-- Rendered via JS -->
+        </div>
+
+        <!-- Rilis Terbaru -->
+        <div class="section-header-row">
+          <div class="section-title-wrap">
+            <svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+            <h3 class="section-title">Rilis Terbaru</h3>
+          </div>
+          <button class="section-link-more" onclick="App.navigateTo('browse')">Semua Update &rsaquo;</button>
+        </div>
+        <div class="latest-comics-list" id="homeLatestList">
+          <!-- Rendered via JS -->
+        </div>
+      </section>
+
+      <!-- ==========================================
+           2. VIEW BROWSE (KATALOG LENGKAP)
+           ========================================== -->
+      <section id="browseView" class="app-view">
+        <div class="browse-header-section">
+          <h2 class="browse-page-title">Browse Komik</h2>
+          <p class="browse-page-sub">Jelajahi 4.050+ series manhwa, manhua, & manga</p>
+
+          <!-- Input Search Live -->
+          <div class="search-input-wrap">
+            <svg class="search-icon-inside" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="browseSearchInput" class="input-browse-search" placeholder="Ketik judul..." />
+          </div>
+
+          <!-- Dropdowns Filter: Urutan, Tipe, Status -->
+          <div class="browse-filter-dropdowns">
+            <select id="browseSortSelect" class="browse-select">
+              <option value="latest">⚡ Update Terbaru</option>
+              <option value="rating">⭐ Rating Tertinggi</option>
+              <option value="popular">🔥 Paling Populer</option>
+              <option value="az">🔤 Abjad A - Z</option>
+            </select>
+            <select id="browseTypeSelect" class="browse-select">
+              <option value="all">Tipe: Semua</option>
+              <option value="manhwa">🇰🇷 Manhwa</option>
+              <option value="manhua">🇨🇳 Manhua</option>
+              <option value="manga">🇯🇵 Manga</option>
+            </select>
+            <select id="browseStatusSelect" class="browse-select">
+              <option value="all">Status: Semua</option>
+              <option value="ongoing">Ongoing</option>
+              <option value="tamat">Tamat</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Horizontal Scroll Genre Filter Pills -->
+        <div class="browse-genres-filter-scroll" id="browseGenreFilterBar">
+          <!-- Rendered via JS -->
+        </div>
+
+        <!-- Counter & Hide Bookmarks Toggle -->
+        <div class="browse-stats-bar">
+          <span id="browseTotalCount">Memuat koleksi...</span>
+          <label class="toggle-switch-wrap">
+            <span>Sembunyikan Bookmark</span>
+            <input type="checkbox" id="toggleHideBookmarks" />
+          </label>
+        </div>
+
+        <!-- Grid Komik -->
+        <div class="browse-comics-grid" id="browseComicsGrid">
+          <!-- Rendered via JS -->
+        </div>
+        <nav class="browse-pagination" id="browsePagination" aria-label="Halaman daftar komik"></nav>
+      </section>
+
+      <!-- ==========================================
+           3. VIEW BOOKMARK SAYA
+           ========================================== -->
+      <section id="bookmarkView" class="app-view">
+        <div id="bookmarkGuestContent" class="bookmark-guest-card" hidden>
+          <div class="profile-guest-lock">🔒</div>
+          <h2>Bookmark tersimpan setelah masuk</h2>
+          <p>Masuk ke akun untuk menyimpan komik dan melanjutkan bacaan dari koleksi pribadimu.</p>
+          <button class="btn-cyan-primary" type="button" onclick="App.openLogin()">Masuk / Buat Akun</button>
+        </div>
+        <div id="bookmarkMemberContent" hidden>
+        <div class="bookmark-header-section">
+          <div class="bookmark-title-row">
+            <h2 class="browse-page-title">Bookmark Saya</h2>
+            <span class="bookmark-count-badge" id="bookmarkTotalCountBadge">24 Komik Tersimpan</span>
+          </div>
+          <p class="browse-page-sub">Lanjutkan serial favoritmu tanpa ketinggalan rilis terbaru</p>
+
+        </div>
+
+        <!-- List Bookmark Items -->
+        <div class="bookmark-list-container" id="bookmarkItemsList">
+          <!-- Rendered via JS -->
+        </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           4. VIEW DETAIL KOMIK
+           ========================================== -->
+      <section id="detailView" class="app-view">
+        <div class="detail-view-container">
+          <!-- Top Back Bar -->
+          <div class="detail-top-nav">
+            <button class="btn-header-icon" id="btnBackFromDetail">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <span class="detail-nav-title">Detail Komik</span>
+          </div>
+
+          <!-- Banner Backdrop -->
+          <div class="detail-banner-backdrop" id="detailBannerBg">
+            <img id="detailBannerImage" class="detail-banner-image" alt="" aria-hidden="true" />
+            <div class="detail-banner-placeholder" id="detailBannerPlaceholder" aria-hidden="true">
+              <span class="detail-banner-placeholder-icon">▧</span>
+              <span>Area gambar banner komik</span>
+            </div>
+            <div class="detail-banner-overlay"></div>
+          </div>
+
+          <!-- Main Info Card -->
+          <div class="detail-main-info-card">
+            <div class="detail-cover-box">
+              <img id="detailCoverImg" src="" alt="Cover Komik" />
+            </div>
+            <div class="detail-meta-box">
+              <div class="detail-top-tags">
+                <span class="badge-pill country" id="detailTypeBadge">KR MANHWA</span>
+                <span class="badge-pill hot" id="detailStatusBadge">Ongoing</span>
+              </div>
+              <h2 class="detail-title" id="detailTitle">-</h2>
+              <p class="detail-alt-title" id="detailAltTitle">-</p>
+              <div class="detail-rating-row">
+                <span>⭐ <strong id="detailRating">9.8</strong></span>
+                <span class="votes" id="detailVotes">(12.4k suara)</span>
+              </div>
+              <p class="detail-author-text" id="detailAuthor">Author: -</p>
+            </div>
+          </div>
+
+          <!-- Action Buttons (Baca Sekarang & Bookmark) -->
+          <div class="detail-actions-bar">
+            <button class="btn-cyan-primary btn-baca-utama" id="btnBacaChapter1">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              Baca Chapter 1
+            </button>
+            <button class="btn-icon-bookmark" id="btnToggleDetailBookmark" title="Simpan Bookmark">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+            </button>
+          </div>
+
+          <div class="detail-community-stats">
+            <div><strong id="detailRatingCount">0</strong><span>Rating</span></div>
+          </div>
+
+          <!-- Genre Tags Lengkap (Clickable) -->
+          <div class="detail-genres-container" id="detailGenreTags">
+            <!-- Rendered via JS -->
+          </div>
+
+          <nav class="detail-tabs" aria-label="Konten detail komik">
+            <button type="button" class="detail-tab active" data-detail-tab="synopsis">Sinopsis</button>
+            <button type="button" class="detail-tab" data-detail-tab="chapters">Chapter (<span id="detailTabChapterCount">0</span>)</button>
+            <button type="button" class="detail-tab" data-detail-tab="reviews">Ulasan (<span id="detailTabReviewCount">0</span>)</button>
+          </nav>
+
+          <div class="detail-synopsis-section detail-tab-panel active" data-detail-panel="synopsis">
+            <h3 class="detail-synopsis-title">Ringkasan</h3>
+            <p class="detail-synopsis-text" id="detailSynopsisText">-</p>
+            <button type="button" class="detail-show-more" id="detailSynopsisToggle">Lihat selengkapnya⌄</button>
+          </div>
+
+          <!-- Daftar Chapter -->
+          <div class="detail-chapters-section detail-tab-panel" data-detail-panel="chapters">
+            <div class="detail-chapters-header">
+              <h3 class="detail-synopsis-title">Daftar Chapter</h3>
+              <span class="card-comic-genres" id="detailTotalChaptersCount">Total 128 Chapter</span>
+            </div>
+            <div class="detail-chapters-list" id="detailChaptersList">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <section class="detail-reviews-section detail-tab-panel" data-detail-panel="reviews">
+            <h3 class="detail-synopsis-title">Rating &amp; Ulasan Pembaca</h3>
+            <p class="detail-review-hint">Selesaikan chapter untuk memberi rating dan ulasan dari halaman baca.</p>
+            <div id="detailReviewsList" class="detail-reviews-list"></div>
+          </section>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           5. VIEW WEBTOON & MANGA READER MODE
+           ========================================== -->
+      <section id="readerView" class="app-view">
+        <div class="reader-view-container">
+          <!-- Top Floating Progress Bar -->
+          <div class="reader-progress-bar" id="readerProgressBar"></div>
+
+          <!-- Reader Top Controls -->
+          <div class="reader-top-controls">
+            <button class="btn-header-icon" id="btnBackFromReader">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div class="reader-title-info">
+              <div class="reader-comic-title" id="readerComicTitle">Komik Title</div>
+              <div class="reader-chapter-sub" id="readerChapterSubtitle">Chapter 1</div>
+            </div>
+            <button class="btn-header-icon" onclick="App.showToast('Mode Scroll Webtoon Vertikal Aktif', 'info')">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            </button>
+          </div>
+
+          <!-- Webtoon Vertical Panels Stream -->
+          <div class="reader-panels-stream" id="readerPanels">
+            <!-- Panels via JS -->
+          </div>
+
+          <!-- Bottom Reader Controls -->
+          <div class="reader-bottom-bar">
+            <button class="btn-cyan-secondary" id="btnPrevChapter" aria-label="Chapter sebelumnya" title="Chapter sebelumnya">&larr;</button>
+            <select class="reader-chapter-dropdown" id="readerChapterSelect">
+              <!-- Options via JS -->
+            </select>
+            <button class="btn-cyan-primary" id="btnNextChapter" aria-label="Chapter berikutnya" title="Chapter berikutnya">&rarr;</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           6. VIEW NOTIFIKASI
+           ========================================== -->
+      <section id="notifikasiView" class="app-view">
+        <div class="detail-top-nav">
+          <button class="btn-header-icon" id="btnBackFromNotif">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <span class="detail-nav-title">Notifikasi</span>
+          <button class="btn-cyan-ghost" id="btnMarkAllNotifsRead">Tandai Dibaca</button>
+        </div>
+        <div class="notifikasi-container" id="notifikasiList">
+          <!-- Rendered via JS -->
+        </div>
+      </section>
+
+      <!-- ==========================================
+           7. VIEW PROFIL SAYA (AKUN)
+           ========================================== -->
+      <section id="akunView" class="app-view">
+        <div class="detail-top-nav">
+          <button class="btn-header-icon" id="btnBackFromAkun">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <span class="detail-nav-title">Profil Saya</span>
+          <button class="btn-cyan-ghost" id="btnTriggerLogin">Masuk Akun</button>
+        </div>
+
+        <div class="profile-view-container">
+          <div id="profileGuestContent" class="profile-guest-card" hidden>
+            <div class="profile-guest-lock">♙</div>
+            <h2>Masuk untuk membuka profilmu</h2>
+            <p>Simpan bookmark, lanjutkan bacaan, dan kumpulkan riwayatmu dalam satu akun.</p>
+            <button class="btn-cyan-primary" type="button" onclick="App.openLogin()">Masuk / Buat Akun</button>
+          </div>
+          <div id="profileMemberContent" hidden>
+          <!-- Profile Card -->
+          <div class="profile-card">
+            <div class="profile-avatar-large avatar-initial-large" id="profileAvatarInitial">?</div>
+            <div>
+              <h3 id="profileUserName" style="font-size: 1.15rem; font-weight: 800;">-</h3>
+              <p id="profileUserMeta" style="font-size: 0.78rem; color: var(--text-body); margin-top: 3px;">-</p>
+            </div>
+          </div>
+
+          <!-- Stats -->
+          <div class="profile-stats-row">
+            <div class="stat-card">
+              <div class="stat-label">Bookmark Tersimpan</div>
+              <div class="stat-value" id="profileBookmarkStat">24 Seri</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Total Riwayat Baca</div>
+              <div class="stat-value" id="profileHistoryStat">148 Ch.</div>
+            </div>
+          </div>
+
+          <!-- Menu Pengaturan -->
+          <h4 style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;">Pengaturan Umum</h4>
+          <div class="profile-menu-list">
+            <button class="profile-menu-item" type="button" onclick="App.openProfileSettings()">
+              <div class="profile-menu-left">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>Pengaturan Profil</span>
+              </div>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+
+            <div class="profile-menu-item" onclick="App.openSecurity()">
+              <div class="profile-menu-left">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                <span>Keamanan Akun</span>
+              </div>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </div>
+
+            <div class="profile-menu-item" onclick="App.navigateTo('notifikasi')">
+              <div class="profile-menu-left">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                <span>Pemberitahuan</span>
+              </div>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </div>
+          </div>
+
+          <!-- Tombol Keluar -->
+          <button class="btn-cyan-secondary" id="btnLogoutUser" style="width: 100%; margin-top: 24px; color: #EF4444; border-color: rgba(239, 68, 68, 0.2);">
+            Keluar dari Akun
+          </button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Navigation Bar (Mobile Nav) -->
+    <nav class="bottom-nav-bar" id="bottomNavBar">
+      <button class="bottom-nav-item active" data-view="beranda">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span>Beranda</span>
+      </button>
+
+      <button class="bottom-nav-item" data-view="browse">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+        </svg>
+        <span>Browse</span>
+      </button>
+
+      <button class="bottom-nav-item" data-view="bookmark">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+          <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span>Bookmark</span>
+      </button>
+
+      <button class="bottom-nav-item" data-view="akun">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <span>Akun</span>
+      </button>
+    </nav>
+
+    <!-- ==========================================
+         MODAL 1: LOGIN (Sesuai Mockup Gambar 1)
+         ========================================== -->
+        <!-- ==========================================
+         MODAL 1: 3D INTERACTIVE BOOK LOGIN (Edisi Spesial KOMIK.ID)
+         ========================================== -->
+    <div class="modal-overlay" id="loginModal">
+      <div class="book-3d-scene" id="book3dScene">
+
+        <!-- Tombol Tutup Floating 3D -->
+        <button class="book-close-btn" id="btnCloseLoginModal" type="button" title="Tutup Buku">&times;</button>
+
+        <!-- 3D Book Structure: sampul 1 halaman -> terbuka jadi 2 halaman -->
+        <div class="book-3d" id="book3d">
+
+          <!-- Halaman kiri (alas; isi kata-kata ada di sisi dalam sampul) -->
+          <div class="book-page book-page-left" aria-hidden="true"></div>
+          <div class="book-hinge"></div>
+
+          <!-- Halaman kanan: login Google -->
+          <div class="book-page book-page-right">
+            <div class="mascot-grip" aria-hidden="true">
+              <svg viewBox="0 0 110 40"><path class="grip-arm" d="M19 0q0 8 5 15m67-15q0 8-5 15"/><path class="grip-paws" d="M7 15q0-8 7-8 5 0 8 5 4-5 9-3 6 2 6 8v7q-14 7-29-1Zm96 0q0-8-7-8-5 0-8 5-4-5-9-3-6 2-6 8v7q14 7 29-1Z"/><path class="grip-lines" d="M14 15v6m7-8v7m7-7v7m61-7v7m7-7v7m7-5v6"/></svg>
+            </div>
+            <div class="login-mascot" id="loginMascot" data-mood="reading" aria-hidden="true">
+              <svg class="mascot-art" viewBox="0 0 180 170" role="presentation">
+                <defs>
+                  <linearGradient id="wolf-coat" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#263f67"/><stop offset="1" stop-color="#101b31"/></linearGradient>
+                  <linearGradient id="wolf-inner-ear" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2d9d3"/><stop offset="1" stop-color="#a5bad0"/></linearGradient>
+                  <linearGradient id="wolf-amber" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd47b"/><stop offset="1" stop-color="#c57832"/></linearGradient>
+                  <linearGradient id="wolf-muzzle" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dce8f0"/></linearGradient>
+                  <linearGradient id="wolf-nose" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#364a60"/><stop offset="1" stop-color="#101a29"/></linearGradient>
+                </defs>
+                <path class="mascot-tail" d="M130 125q18-14 29-3 9 9-3 16-7 4-10-2 9 3 11-4 1-7-7-7-7 0-14 7Z" />
+                <path class="mascot-ear" d="M38 66 23 12q-2-8 7-3l46 34m28 0 46-34q9-5 7 3l-15 54" />
+                <path class="mascot-ear-inner" d="m40 51-9-31 31 28m58 0 31-28-9 31" />
+                <path class="mascot-ear-fur" d="m45 46-7-19 18 20m79-1 18-19-7 19" />
+                <path class="mascot-head" d="M34 64C42 44 58 38 75 40L90 29l15 11c17-2 33 4 41 24 7 17 5 34-4 47-8 12-19 16-31 9l-21 13-21-13c-12 7-23 3-31-9-9-13-11-30-4-47Z" />
+                <path class="mascot-blaze" d="M83 40q7-6 14 0l-3 11q7 7 2 15l6 9-7 8 4 9-9 12-9-12 4-9-7-8 6-9q-5-8 2-15Z" />
+                <path class="mascot-cheek" d="M36 78c8-9 21-9 29 0 8 9 5 22-3 32l-7 8-7-9-9 5 2-10-11 2c-6-9-3-21 6-28Zm108 0c-8-9-21-9-29 0-8 9-5 22 3 32l7 8 7-9 9 5-2-10 11 2c6-9 3-21-6-28Z" />
+                <path class="mascot-fur-detail" d="M40 87q8-5 15-1m85 1q-8-5-15-1M43 98l9 1m85-1-9 1" />
+                <path class="mascot-muzzle" d="M64 91c7-8 17-9 26-3 9-6 19-5 26 3l-3 14c-6 9-15 11-23 5-8 6-17 4-23-5Z" />
+                <path class="mascot-nose" d="M79 91q11-9 22 0l-3 7q-8 6-16 0Z" />
+                <ellipse class="mascot-nose-glint" cx="85" cy="92" rx="3" ry="1.5" />
+                <path class="mascot-mouth" d="M90 98v6m0 0q-4 6-11 4m11-4q4 6 11 4" />
+                <g class="mascot-open-eyes"><ellipse cx="57" cy="77" rx="9" ry="10"/><ellipse cx="123" cy="77" rx="9" ry="10"/><g class="mascot-pupils"><ellipse class="mascot-iris" cx="58" cy="78" rx="5" ry="7"/><ellipse class="mascot-iris" cx="122" cy="78" rx="5" ry="7"/><ellipse cx="58" cy="79" rx="2.5" ry="5"/><ellipse cx="122" cy="79" rx="2.5" ry="5"/><circle class="mascot-glint" cx="60" cy="74" r="2"/><circle class="mascot-glint" cx="124" cy="74" r="2"/></g></g>
+                <g class="mascot-closed-eyes"><path d="M47 78q10 8 20 0m46 0q10 8 20 0"/></g>
+                <path class="mascot-body" d="M56 119q15-9 34-4 19-5 34 4l11 34H45Z" />
+                <path class="mascot-chest" d="M78 119q12-5 24 0l10 29-22-9-22 9Z" />
+                <path class="mascot-arm" d="M54 119q-9 8-13 24m85-24q9 8 13 24" />
+                <path class="mascot-paw" d="M30 143q0-10 9-10 6 0 9 6 4-6 9-4 7 2 7 9v7q-16 8-31-1Zm120 0q0-10-9-10-6 0-9 6-4-6-9-4-7 2-7 9v7q16 8 31-1Z" />
+                <path class="mascot-paw-shine" d="M35 138q5-5 10 0m100 0q-5-5-10 0" />
+                <path class="mascot-paw-crease" d="M37 143v6m7-8v7m7-7v7m58-7v7m7-7v7m7-5v6" />
+              </svg>
+            </div>
+            <div class="book-ribbon"></div>
+            <div class="page-content right-spread">
+              <div class="auth-stage">
+
+                <!-- LOGIN -->
+                <div class="auth-view active" id="viewLogin">
+                  <div class="auth-head"><div class="auth-head-icon">📖</div><h3 class="login-title">Masuk ke KOMIK.ID</h3><p class="login-sub">Lanjutkan baca serial favoritmu.</p></div>
+                  <form id="loginForm" novalidate>
+                    <div class="form-group"><label class="form-label">Username atau Email</label><div class="input-with-icon"><span class="input-icon">@</span><input type="text" id="loginId" class="input-text" placeholder="username atau email" autocomplete="username" /></div></div>
+                    <div class="form-group"><label class="form-label">Kata Sandi</label><div class="input-with-icon"><span class="input-icon">🔒</span><input type="password" id="loginPass" class="input-text" placeholder="••••••••" autocomplete="current-password" /><button type="button" class="btn-input-toggle" data-toggle-pass title="Lihat sandi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></button></div></div>
+                    <div class="form-meta-row"><span></span><a href="javascript:void(0)" class="link-cyan" data-go="forgot">Lupa sandi?</a></div>
+                    <p class="auth-error" id="loginError" role="alert"></p>
+                    <button type="submit" class="btn-cyan-primary btn-full-submit">Masuk &rarr;</button>
+                  </form>
+                  <div class="auth-divider">ATAU</div>
+                  <button class="btn-google-book js-google" type="button" data-go="google"><svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg> Lanjutkan dengan Google</button>
+                  <p class="auth-switch-text">Belum punya akun? <a href="javascript:void(0)" class="link-cyan" data-go="register" style="font-weight:700">Buat akun</a></p>
+                </div>
+
+                <!-- BUAT AKUN -->
+                <div class="auth-view" id="viewRegister">
+                  <div class="auth-head"><div class="auth-head-icon">✨</div><h3 class="login-title">Buat Akun Baru</h3><p class="login-sub">Cukup username dan sandi.</p></div>
+                  <form id="registerForm" novalidate>
+                    <div class="form-group"><label class="form-label">Username</label><div class="input-with-icon"><span class="input-icon">👤</span><input type="text" id="regUsername" class="input-text" placeholder="Komikers_Hebat" autocomplete="username" /></div></div>
+                    <div class="form-group"><label class="form-label">Kata Sandi</label><div class="input-with-icon"><span class="input-icon">🔒</span><input type="password" id="regPass" class="input-text" placeholder="Minimal 6 karakter" autocomplete="new-password" /><button type="button" class="btn-input-toggle" data-toggle-pass title="Lihat sandi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></button></div></div>
+                    <div class="form-group"><label class="form-label">Email <em class="opt">(opsional, untuk reset sandi)</em></label><div class="input-with-icon"><span class="input-icon">@</span><input type="email" id="regEmail" class="input-text" placeholder="nama@email.com" autocomplete="email" /></div></div>
+                    <p class="auth-error" id="regError" role="alert"></p>
+                    <button type="submit" class="btn-cyan-primary btn-full-submit">Buat Akun &amp; Masuk &rarr;</button>
+                  </form>
+                  <div class="auth-divider">ATAU</div>
+                  <button class="btn-google-book js-google" type="button" data-go="google"><svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg> Daftar dengan Google</button>
+                  <p class="auth-switch-text">Sudah punya akun? <a href="javascript:void(0)" class="link-cyan" data-go="login" style="font-weight:700">Masuk</a></p>
+                </div>
+
+                <!-- LUPA SANDI: langkah 1 (kirim ke email) -->
+                <div class="auth-view" id="viewForgot">
+                  <div class="auth-head"><div class="auth-head-icon">🔑</div><h3 class="login-title">Lupa Sandi?</h3><p class="login-sub">Kami kirim kode reset ke emailmu.</p></div>
+                  <form id="forgotForm" novalidate>
+                    <div class="form-group"><label class="form-label">Email Akun</label><div class="input-with-icon"><span class="input-icon">@</span><input type="email" id="forgotEmail" class="input-text" placeholder="nama@email.com" autocomplete="email" /></div></div>
+                    <p class="auth-error" id="forgotError" role="alert"></p>
+                    <button type="submit" class="btn-cyan-primary btn-full-submit">Kirim Kode ke Email &rarr;</button>
+                  </form>
+                  <p class="auth-switch-text"><a href="javascript:void(0)" class="link-cyan" data-go="login">&larr; Kembali ke Masuk</a></p>
+                </div>
+
+                <!-- LUPA SANDI: langkah 2 (kode + sandi baru) -->
+                <div class="auth-view" id="viewReset">
+                  <div class="auth-head"><div class="auth-head-icon">📧</div><h3 class="login-title">Cek Emailmu</h3><p class="login-sub">Kode 6 digit sudah dikirim ke <strong id="resetEmailShow"></strong>.</p></div>
+                  <div class="demo-mail" id="demoMail">Demo: isi email yang terkirim &rarr; kode <b id="demoCode">------</b></div>
+                  <form id="resetForm" novalidate>
+                    <div class="form-group"><label class="form-label">Kode Reset</label><div class="input-with-icon"><span class="input-icon">🔢</span><input type="text" id="resetCode" class="input-text" inputmode="numeric" maxlength="6" placeholder="6 digit" autocomplete="one-time-code" /></div></div>
+                    <div class="form-group"><label class="form-label">Sandi Baru</label><div class="input-with-icon"><span class="input-icon">🔒</span><input type="password" id="resetPass" class="input-text" placeholder="Minimal 6 karakter" autocomplete="new-password" /><button type="button" class="btn-input-toggle" data-toggle-pass title="Lihat sandi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></button></div></div>
+                    <p class="auth-error" id="resetError" role="alert"></p>
+                    <button type="submit" class="btn-cyan-primary btn-full-submit">Simpan Sandi Baru</button>
+                  </form>
+                  <p class="auth-switch-text"><a href="javascript:void(0)" class="link-cyan" data-go="forgot">&larr; Ganti email</a></p>
+                </div>
+
+                <!-- GOOGLE -->
+                <div class="auth-view" id="viewGoogle">
+                  <div class="auth-head"><div class="auth-head-icon"><svg width="26" height="26" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg></div><h3 class="login-title">Masuk dengan Google</h3><p class="login-sub">Pakai akun Google-mu.</p></div>
+                  <form id="googleForm" novalidate>
+                    <div class="form-group"><label class="form-label">Akun Google (Gmail)</label><div class="input-with-icon"><span class="input-icon">@</span><input type="email" id="googleEmail" class="input-text" placeholder="nama@gmail.com" autocomplete="email" /></div></div>
+                    <p class="auth-error" id="googleError" role="alert"></p>
+                    <button type="submit" class="btn-google-book btn-google-solid"><svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg> Lanjutkan</button>
+                  </form>
+                  <p class="auth-switch-text"><a href="javascript:void(0)" class="link-cyan" data-go="login">&larr; Pakai username &amp; sandi</a></p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Sampul depan (1 halaman, di sisi kanan). Sisi luar = sampul, sisi dalam = halaman kiri berisi kata-kata -->
+          <div class="book-cover-front" id="bookFrontCover" role="button" tabindex="0" aria-label="Klik untuk membuka buku dan masuk">
+            <div class="cover-outside">
+              <div class="cover-metallic-border"></div>
+              <div class="cover-corner top-left"></div>
+              <div class="cover-corner top-right"></div>
+              <div class="cover-corner bottom-left"></div>
+              <div class="cover-corner bottom-right"></div>
+
+              <div class="cover-emboss-logo">
+                <div class="cover-icon-k">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="#FFFFFF">
+                    <path d="M4 4h4.5a3.5 3.5 0 0 1 3.5 3.5v12.5a3.5 3.5 0 0 0-3.5-3.5H4z"></path>
+                    <path d="M20 4h-4.5a3.5 3.5 0 0 0-3.5 3.5v12.5a3.5 3.5 0 0 1 3.5-3.5H20z"></path>
+                  </svg>
+                </div>
+                <h2 class="cover-brand-title">KOMIK<span>•ID</span></h2>
+                <p class="cover-edition-tag">SPECIAL READER EDITION</p>
+              </div>
+
+              <div class="cover-art-crest"><div class="crest-emblem">📖</div></div>
+
+              <div class="cover-footer-info">
+                <span class="cover-vol-badge">VOL. 01 • ACCESS PASS</span>
+                <span class="cover-hint-text">Klik sampul untuk membuka ›</span>
+              </div>
+            </div>
+
+            <div class="cover-inside">
+              <div class="quote-page">
+                <span class="quote-badge">KOMIK.ID</span>
+                <div class="quote-mark">&ldquo;</div>
+                <blockquote class="quote-text">Awalnya cuma mau baca satu bab. <em>Tahu-tahu, pagi sudah datang.</em></blockquote>
+                <div class="quote-ornament">✦ ✦ ✦</div>
+                <p class="quote-sub">Masuk untuk menyimpan komik favorit dan melanjutkan bacaan dari halaman terakhir.</p>
+                <span class="quote-sign">— Selamat datang, Komikers!</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL: KEAMANAN AKUN -->
+    <div class="modal-overlay" id="profileSettingsModal">
+      <div class="modal-content-card">
+        <button class="modal-close-btn" id="btnCloseProfileSettings" type="button" aria-label="Tutup">&times;</button>
+        <h3 class="login-title" style="margin-bottom: 4px;">Pengaturan Profil</h3>
+        <p class="login-sub" style="margin-bottom: 14px;">Ubah nama tampilan dan bio profilmu.</p>
+        <form id="profileSettingsForm" novalidate>
+          <div class="form-group"><label class="form-label" for="profileDisplayNameInput">Nama tampilan</label><input id="profileDisplayNameInput" class="input-text" type="text" maxlength="30" required /></div>
+          <div class="form-group"><label class="form-label" for="profileBioInput">Bio</label><textarea id="profileBioInput" class="input-text" rows="3" maxlength="120" placeholder="Ceritakan sedikit tentang dirimu"></textarea></div>
+          <p class="auth-error" id="profileSettingsError" role="alert"></p>
+          <button type="submit" class="btn-cyan-primary btn-full-submit">Simpan Profil</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- MODAL: KEAMANAN AKUN -->
+    <div class="modal-overlay" id="securityModal">
+      <div class="modal-content-card">
+        <button class="modal-close-btn" id="btnCloseSecurity" type="button">&times;</button>
+        <h3 class="login-title" style="margin-bottom: 4px;">🔒 Keamanan Akun</h3>
+        <p class="login-sub" style="margin-bottom: 14px;">Kelola kata sandi dan email pemulihan akunmu.</p>
+
+        <div class="sec-info">
+          <div><span>Username</span><b id="secUsername">-</b></div>
+          <div><span>Masuk lewat</span><b id="secMethod">-</b></div>
+          <div><span>Email</span><b id="secEmailNow">-</b></div>
+        </div>
+        <p class="sec-note" id="secNote" hidden></p>
+
+        <div id="secControls">
+          <form id="secPassForm" novalidate>
+            <h4 class="sec-h">Ganti Kata Sandi</h4>
+            <div class="form-group"><label class="form-label">Sandi Lama</label><div class="input-with-icon"><span class="input-icon">🔑</span><input type="password" id="secOldPass" class="input-text" autocomplete="current-password" /><button type="button" class="btn-input-toggle" data-toggle-pass title="Lihat sandi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></button></div></div>
+            <div class="form-group"><label class="form-label">Sandi Baru</label><div class="input-with-icon"><span class="input-icon">🔒</span><input type="password" id="secNewPass" class="input-text" placeholder="Minimal 6 karakter" autocomplete="new-password" /><button type="button" class="btn-input-toggle" data-toggle-pass title="Lihat sandi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></button></div></div>
+            <div class="form-group"><label class="form-label">Ulangi Sandi Baru</label><div class="input-with-icon"><span class="input-icon">🔒</span><input type="password" id="secConfirmPass" class="input-text" autocomplete="new-password" /></div></div>
+            <p class="auth-error" id="secPassError" role="alert"></p>
+            <button type="submit" class="btn-cyan-primary btn-full-submit">Simpan Sandi Baru</button>
+          </form>
+
+          <form id="secEmailForm" novalidate>
+            <h4 class="sec-h">Email Pemulihan Sandi</h4>
+            <div class="form-group"><label class="form-label">Email</label><div class="input-with-icon"><span class="input-icon">@</span><input type="email" id="secEmailInput" class="input-text" placeholder="nama@email.com" autocomplete="email" /></div></div>
+            <p class="auth-error" id="secEmailError" role="alert"></p>
+            <button type="submit" class="btn-cyan-secondary btn-full-submit">Simpan Email</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/reader.js"></script>
+  <script src="js/book-3d.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

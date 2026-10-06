@@ -1,0 +1,372 @@
+/* ==========================================================================
+   KOMIK.ID - Responsive Styles (Dual Mode: Desktop Widescreen & Phone Mockup)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. MODE DESKTOP WIDESCREEN (Navigasi Atas, Bersih, Lebar 1240px)
+   -------------------------------------------------------------------------- */
+#appShellContainer {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.7);
+}
+
+#appShellContainer .desktop-nav-menu {
+  display: flex !important;
+}
+
+#appShellContainer .bottom-nav-bar {
+  display: none !important; /* Bottom bar lenyap total di mode desktop */
+}
+
+#appShellContainer .main-view-container {
+  padding-bottom: 40px;
+}
+
+#appShellContainer .browse-comics-grid {
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 20px !important;
+  padding: 12px 24px 36px !important;
+}
+
+#appShellContainer .browse-comic-card .card-thumb-wrap {
+  height: auto !important;
+  aspect-ratio: 2 / 3 !important;
+  flex: none !important;
+}
+
+#appShellContainer .hero-card {
+  min-height: 440px !important;
+  padding: 36px 32px !important;
+}
+
+#appShellContainer .hero-title {
+  font-size: 2.2rem !important;
+}
+
+#appShellContainer .hero-synopsis {
+  font-size: 0.95rem !important;
+  max-width: 650px !important;
+}
+
+#appShellContainer .trending-cards-scroll {
+  gap: 16px !important;
+  padding: 8px 24px 20px !important;
+}
+
+#appShellContainer .trending-comic-card {
+  flex: 0 0 160px !important;
+}
+
+#appShellContainer .latest-comics-list {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 14px !important;
+  padding: 0 24px 24px !important;
+}
+
+#appShellContainer .section-header-row,
+#appShellContainer .browse-header-section,
+#appShellContainer .bookmark-header-section {
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
+
+#appShellContainer .detail-banner-backdrop {
+  height: 320px !important;
+}
+
+#appShellContainer .detail-main-info-card {
+  margin-top: -120px !important;
+  padding: 0 32px !important;
+}
+
+#appShellContainer .detail-cover-box {
+  width: 170px !important;
+  height: 238px !important;
+}
+
+#appShellContainer .detail-title {
+  font-size: 2rem !important;
+}
+
+#appShellContainer .detail-genres-container,
+#appShellContainer .detail-synopsis-section,
+#appShellContainer .detail-chapters-section,
+#appShellContainer .detail-actions-bar {
+  padding-left: 32px !important;
+  padding-right: 32px !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. MODE FRAME SMARTPHONE MOCKUP (Tampilan HP Sempurna di Desktop)
+   -------------------------------------------------------------------------- */
+@media (min-width: 769px) {
+#appShellContainer.frame-mode {
+  max-width: 430px !important;
+  width: 100% !important;
+  height: 860px !important;
+  max-height: calc(100vh - 70px) !important;
+  margin: 16px auto !important;
+  border-radius: 46px !important;
+  border: 12px solid #1E293B !important;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.95), 0 0 0 2px rgba(255, 255, 255, 0.1) !important;
+  overflow-y: scroll !important;
+  overflow-x: hidden !important;
+  position: relative !important;
+  background-color: var(--bg-main) !important;
+  /* Sembunyikan scrollbar agar tidak merusak sudut lengkung frame HP */
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+/* Hilangkan track scrollbar webkit pada mockup HP */
+#appShellContainer.frame-mode::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Sembunyikan navigasi atas di frame HP */
+#appShellContainer.frame-mode .desktop-nav-menu {
+  display: none !important;
+}
+
+/* Pastikan Bottom Nav Bar rapi terkunci di bagian bawah frame HP */
+#appShellContainer.frame-mode .bottom-nav-bar {
+  display: flex !important;
+  position: sticky !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  transform: none !important;
+  background: rgba(11, 15, 25, 0.98) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-bottom-left-radius: 34px !important;
+  border-bottom-right-radius: 34px !important;
+  z-index: 950 !important;
+  padding: 10px 12px 14px !important;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Ruang kosong di bawah agar komik tidak tertutup oleh bottom bar */
+#appShellContainer.frame-mode .main-view-container {
+  padding-bottom: 110px !important;
+}
+
+#appShellContainer.frame-mode .browse-comics-grid {
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 12px !important;
+  padding: 8px 14px 30px !important;
+}
+
+#appShellContainer.frame-mode .hero-card {
+  min-height: 350px !important;
+  padding: 18px 14px !important;
+}
+
+#appShellContainer.frame-mode .hero-title {
+  font-size: 1.4rem !important;
+}
+
+#appShellContainer.frame-mode .hero-synopsis {
+  font-size: 0.82rem !important;
+  max-width: 100% !important;
+}
+
+#appShellContainer.frame-mode .latest-comics-list {
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 0 16px 24px !important;
+}
+
+#appShellContainer.frame-mode .detail-banner-backdrop {
+  height: 220px !important;
+}
+
+#appShellContainer.frame-mode .detail-main-info-card {
+  margin-top: -80px !important;
+  padding: 0 16px !important;
+}
+
+#appShellContainer.frame-mode .detail-cover-box {
+  width: 110px !important;
+  height: 154px !important;
+}
+
+#appShellContainer.frame-mode .detail-title {
+  font-size: 1.3rem !important;
+}
+}
+
+/* --------------------------------------------------------------------------
+   3. TAMPILAN RESPONSIVE LAYAR HP ASLI (Layar Perangkat < 769px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  @supports (overflow-x: clip) {
+    html,
+    body {
+      overflow-x: clip;
+    }
+  }
+
+  #appShellContainer {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    height: auto !important;
+  }
+
+  @supports (overflow-x: clip) {
+    #appShellContainer {
+      overflow-x: clip;
+    }
+  }
+
+  /* Samakan specificity dengan aturan desktop di bagian atas file agar benar-benar menang. */
+  #appShellContainer .desktop-nav-menu {
+    display: none !important;
+  }
+
+  #appShellContainer .bottom-nav-bar {
+    display: flex !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    border-radius: 0 !important;
+    z-index: 950 !important;
+    padding: 8px 12px calc(14px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  #appShellContainer .main-view-container {
+    padding-bottom: 110px !important;
+  }
+
+  #appShellContainer .browse-comics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    padding: 8px 12px 28px !important;
+  }
+
+  #appShellContainer .browse-filter-dropdowns {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    min-width: 0;
+  }
+
+  #appShellContainer .browse-select {
+    width: 100%;
+    min-width: 0;
+    padding-left: 7px;
+    padding-right: 4px;
+    font-size: .7rem;
+  }
+
+  #appShellContainer .browse-stats-bar {
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  #appShellContainer .toggle-switch-wrap {
+    max-width: 100%;
+  }
+
+  #appShellContainer .hero-card {
+    min-height: 350px !important;
+    padding: 18px 14px !important;
+  }
+
+  #appShellContainer .hero-title {
+    font-size: 1.4rem !important;
+  }
+
+  #appShellContainer .latest-comics-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding: 0 12px 24px !important;
+  }
+
+  #appShellContainer .trending-cards-scroll {
+    gap: 12px !important;
+    padding: 8px 12px 20px !important;
+  }
+
+  #appShellContainer .trending-comic-card {
+    flex-basis: 140px !important;
+  }
+
+  #appShellContainer .section-header-row,
+  #appShellContainer .browse-header-section,
+  #appShellContainer .bookmark-header-section {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  #appShellContainer .detail-banner-backdrop {
+    height: 180px !important;
+  }
+
+  #appShellContainer .detail-main-info-card {
+    margin-top: -64px !important;
+    padding: 0 12px !important;
+  }
+
+  #appShellContainer .detail-cover-box {
+    width: 95px !important;
+    height: 135px !important;
+  }
+
+  #appShellContainer .detail-title {
+    font-size: 1.2rem !important;
+  }
+
+  #appShellContainer .detail-genres-container,
+  #appShellContainer .detail-synopsis-section,
+  #appShellContainer .detail-chapters-section,
+  #appShellContainer .detail-actions-bar {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  #appShellContainer .app-header {
+    padding: 12px 16px !important;
+  }
+
+  #appShellContainer.reader-active .bottom-nav-bar {
+    display: none !important;
+  }
+
+  /* Jaga konten tetap terlihat di layar HP berponi dan browser dengan toolbar dinamis. */
+  .modal-overlay {
+    padding: max(12px, env(safe-area-inset-top, 0px)) 12px max(12px, env(safe-area-inset-bottom, 0px));
+  }
+
+  .modal-content-card {
+    max-height: 90vh;
+    max-height: 90dvh;
+  }
+}

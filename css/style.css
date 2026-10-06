@@ -1,0 +1,529 @@
+/* ==========================================================================
+   KOMIK.ID - Base Theme & Global Styles
+   ========================================================================== */
+
+:root {
+  /* Color Palette */
+  --bg-main: #0B0F19;
+  --bg-card: #131D2E;
+  --bg-card-hover: #19263D;
+  --bg-card-subtle: #0F1626;
+  --bg-input: #182338;
+  --bg-modal: #111A2B;
+  --bg-glass: rgba(19, 29, 46, 0.85);
+
+  /* Cyan / Electric Blue Accents */
+  --accent-cyan: #00A3FF;
+  --accent-cyan-hover: #008EE0;
+  --accent-cyan-dark: #006FB3;
+  --accent-cyan-light: #4DC0FF;
+  --accent-cyan-glow: rgba(0, 163, 255, 0.35);
+  --accent-cyan-subtle: rgba(0, 163, 255, 0.12);
+
+  /* Status & Type Badges */
+  --badge-kr: #2563EB;
+  --badge-jp: #E11D48;
+  --badge-cn: #DC2626;
+  --badge-baru: #EF4444;
+  --badge-hot: #F97316;
+  --badge-star: #F59E0B;
+  --badge-ongoing: #10B981;
+  --badge-tamat: #64748B;
+
+  /* Typography Colors */
+  --text-main: #FFFFFF;
+  --text-heading: #F8FAFC;
+  --text-body: #94A3B8;
+  --text-muted: #64748B;
+  --text-dim: #475569;
+
+  /* Borders & Dividers */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-cyan: rgba(0, 163, 255, 0.35);
+  --border-card: rgba(255, 255, 255, 0.05);
+
+  /* Sizing & Transitions */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  --transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 4px 24px var(--accent-cyan-glow);
+}
+
+/* Reset & Normalize */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background-color: #060910;
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #060910;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: #25334E;
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-cyan);
+}
+
+/* Layout App Shell */
+#appShellContainer {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: var(--bg-main);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive Desktop Mode Switcher */
+#appShellContainer.desktop-expanded {
+  max-width: 1240px;
+}
+
+/* Top Floating Simulator Control */
+.view-mode-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: #0d1424;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 16px;
+  font-size: 0.78rem;
+  color: var(--text-body);
+}
+
+.simulator-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.simulator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--badge-ongoing);
+  box-shadow: 0 0 8px var(--badge-ongoing);
+}
+
+.btn-toggle-frame {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-heading);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition);
+}
+
+.btn-toggle-frame:hover {
+  background: var(--accent-cyan-subtle);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+}
+
+
+/* Header Utama */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: rgba(11, 15, 25, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.16);
+}
+
+body {
+  background-image: radial-gradient(ellipse at 50% -18%, rgba(0, 163, 255, 0.11), transparent 42%);
+  background-attachment: fixed;
+}
+
+.header-left-group {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header-brand {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* KOMIK.ID Official Modern Logo matching Image 1 */
+.brand-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-icon-box {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px var(--accent-cyan-glow);
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-icon-box::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 50%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.25), transparent);
+}
+
+.brand-icon-box svg {
+  width: 22px;
+  height: 22px;
+  fill: #FFFFFF;
+}
+
+.brand-title-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.brand-name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #FFFFFF;
+}
+
+.brand-id-badge {
+  background: var(--accent-cyan);
+  color: #FFFFFF;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px var(--accent-cyan-glow);
+}
+
+.brand-subtext {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--text-body);
+  margin-top: -2px;
+}
+
+
+/* Desktop Navigation Menu (Header Atas) */
+.desktop-nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(19, 29, 46, 0.75);
+  padding: 4px 6px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-card);
+}
+
+.desktop-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-body);
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.desktop-nav-link svg {
+  width: 17px;
+  height: 17px;
+  stroke: currentColor;
+  transition: var(--transition);
+}
+
+.desktop-nav-link:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.desktop-nav-link.active {
+  background: var(--accent-cyan);
+  color: #FFFFFF;
+  border-color: var(--accent-cyan);
+  box-shadow: 0 2px 14px var(--accent-cyan-glow);
+}
+
+.desktop-nav-link.active svg {
+  stroke: #FFFFFF;
+}
+
+/* Header Right Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-header-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  color: var(--text-heading);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: var(--transition);
+}
+
+.btn-header-icon:hover {
+  background: var(--bg-card-hover);
+  color: var(--accent-cyan);
+  border-color: var(--border-cyan);
+}
+
+.notif-badge-dot {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 8px;
+  height: 8px;
+  background: var(--accent-cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent-cyan);
+}
+
+.user-avatar-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 2px solid var(--accent-cyan);
+  cursor: pointer;
+  background: var(--bg-card);
+  box-shadow: 0 2px 10px var(--accent-cyan-glow);
+  padding: 0;
+  display: flex;
+}
+
+.user-avatar-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Bottom Navigation Bar (Mobile) */
+.bottom-nav-bar {
+  display: none; /* Sembunyikan di desktop secara default */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin: 0 auto;
+  background: rgba(11, 15, 25, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border-subtle);
+  justify-content: space-around;
+  padding: 8px 12px 12px;
+  z-index: 950;
+}
+
+#appShellContainer.desktop-expanded .bottom-nav-bar {
+  max-width: 1240px;
+}
+
+.bottom-nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 6px 0;
+  border-radius: var(--radius-md);
+  font-size: 0.74rem;
+  font-weight: 600;
+  transition: var(--transition);
+  position: relative;
+  user-select: none;
+}
+
+.bottom-nav-item:hover {
+  color: var(--text-heading);
+}
+
+.bottom-nav-item svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  transition: var(--transition);
+}
+
+.bottom-nav-item.active {
+  color: var(--accent-cyan);
+}
+
+.bottom-nav-item.active svg {
+  stroke: var(--accent-cyan);
+  filter: drop-shadow(0 2px 8px var(--accent-cyan-glow));
+}
+
+.bottom-nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 3px;
+  background: var(--accent-cyan);
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 10px var(--accent-cyan);
+}
+
+/* Main Content Views */
+.main-view-container {
+  flex: 1;
+  padding-bottom: 30px;
+}
+
+.app-view {
+  display: none;
+  animation: fadeIn 0.25s ease forwards;
+}
+
+.app-view.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Toast Notifications */
+.toast-container {
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+  width: 90%;
+  max-width: 400px;
+}
+
+.toast-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-cyan);
+  color: var(--text-heading);
+  padding: 12px 18px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: auto;
+}
+
+.toast-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast-item.success {
+  border-color: var(--badge-ongoing);
+}
+
+.toast-item.success .toast-icon {
+  color: var(--badge-ongoing);
+}
+
+.toast-item.warning {
+  border-color: var(--badge-hot);
+}
+
+.toast-item.warning .toast-icon {
+  color: var(--badge-hot);
+}
+
+.toast-item.info .toast-icon {
+  color: var(--accent-cyan);
+}
