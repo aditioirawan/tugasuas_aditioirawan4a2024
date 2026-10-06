@@ -1,61 +1,28 @@
-KOMIK.ID
+# KOMIK.ID - Web Baca Komik Online
 
-KOMIK.ID adalah website katalog dan pembaca komik. Pengunjung dapat mencari komik, melihat detail dan chapter, membaca gambar secara vertikal, serta menyimpan bookmark.
+* **Nama:** Aditio Irawan
+* **NIM:** 43240331
 
-MENJALANKAN WEBSITE
+## Deskripsi & Tujuan Proyek
+Platform web pembaca komik digital KOMIK.ID dengan tampilan responsif dan animasi interaktif.
 
-Buka folder proyek ini di Visual Studio Code.
+## Sasaran Pengguna
+Penggemar komik, manga, dan manhwa.
 
-Pasang ekstensi Live Server jika belum tersedia.
+## Daftar Halaman & Fitur
+1. Halaman Utama / Katalog Komik
+2. Animasi Login 3D Buku
+3. Reader / Viewer Komik
 
-Buka index.html, lalu klik Go Live di kanan bawah VS Code.
+## Tautan Figma
+Link Figma dapat dilihat di `figma/tautan-figma.txt`.
 
-Website akan terbuka di browser. Untuk mencoba dari HP, sambungkan HP dan laptop ke Wi-Fi yang sama, lalu buka alamat jaringan laptop yang digunakan Live Server.
+## Cara Menjalankan Halaman Web
+Buka file `source-code/index.html` di browser atau akses via GitHub Pages.
 
-Website ini tidak memerlukan proses build atau instalasi package.
+## Catatan Hasil Pengujian & Perbaikan
+* Penyesuaian antarmuka responsif di layar mobile.
+* Optimasi animasi flip halaman CSS/JS.
+```
 
-CARA MENGGUNAKAN
-
-Beranda: lihat komik pilihan, komik populer, dan pembaruan terbaru.
-
-Browse: cari judul, lalu saring koleksi berdasarkan tipe, status, genre, atau urutan.
-
-Detail komik: klik poster untuk melihat sinopsis, informasi, bookmark, dan daftar chapter.
-
-Membaca: pilih chapter untuk membuka gambar. Gulir ke bawah untuk melanjutkan. Gunakan panah untuk pindah chapter dan pilihan di tengah untuk memilih chapter tertentu.
-
-Bookmark dan akun: daftar atau masuk untuk menggunakan bookmark dan fitur akun. Data akun dan bookmark demo tersimpan di browser yang sedang digunakan.
-
-MENAMBAHKAN GAMBAR CHAPTER
-
-Data komik ada di js/data.js. Gunakan ID komik sebagai nama folder, lalu buat subfolder dengan format chapter-nomor di assets/comics.
-
-Contoh untuk ID komik solo-leveling-ragnarok:
-
-assets/comics/solo-leveling-ragnarok/chapter-1/001.png
-
-assets/comics/solo-leveling-ragnarok/chapter-1/002.png
-
-assets/comics/solo-leveling-ragnarok/chapter-2/001.webp
-
-Format gambar yang didukung adalah PNG, JPG, JPEG, dan WebP. Nomori gambar berurutan dengan tiga digit, seperti 001, 002, 003, tanpa spasi. Reader memuat gambar sampai nomor berikutnya tidak ditemukan.
-
-STRUKTUR FOLDER
-
-index.html - halaman utama website
-
-css/ - tampilan dan aturan responsif
-
-js/ - navigasi, data komik, akun, dan reader
-
-assets/covers/ - gambar cover komik
-
-assets/banners/ - gambar banner komik
-
-assets/comics/ - gambar halaman chapter
-
-CATATAN
-
-Akun dan Google login pada proyek ini merupakan simulasi untuk demonstrasi. Keduanya belum terhubung ke server atau autentikasi Google sungguhan.
-
-Akun, bookmark, dan riwayat baca disimpan secara lokal di browser. Data tersebut tidak otomatis berpindah ke perangkat atau browser lain.
+---
